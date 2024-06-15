@@ -15,7 +15,7 @@ public class ReviewRequest {
 
     private String reviewContent;
     private double rating;
-    private String movieId;
+    private Long movieId;
 
     public Review toReview() {
         return Review.builder().reviewContent(reviewContent)

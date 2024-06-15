@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.myworkspace.MovieReview.DTOs.Responses.MovieResponse;
-import org.springframework.data.annotation.Id;
+import java.io.Serializable;
 
 import java.io.Serializable;
 import java.util.List;
@@ -20,8 +20,8 @@ public class Movie implements Serializable {
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String title;
 

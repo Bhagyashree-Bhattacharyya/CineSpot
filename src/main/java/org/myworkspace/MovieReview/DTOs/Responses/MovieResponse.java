@@ -7,6 +7,7 @@ import java.util.List;
 
 @Builder
 public class MovieResponse {
+
     private String title;
     private Genre genre;
     private Double rating;

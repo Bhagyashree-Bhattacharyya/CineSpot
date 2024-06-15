@@ -7,9 +7,11 @@ import org.myworkspace.MovieReview.Repositories.ReviewRepository;
 import org.myworkspace.MovieReview.DTOs.Requests.ReviewRequest;
 import org.myworkspace.MovieReview.Entities.Review;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class ReviewService {
 
     @Autowired
@@ -25,7 +27,7 @@ public class ReviewService {
             Double average = reviewRepository.getReviewAverage(movie.getId());
             movie.setRating(average);
             movieRepository.save(movie);
-        } // need to refactor to lower the time complexity
+        } // need to refactor to reduce the time complexity, like by scheduling
     }
 
     public ReviewResponse getReviewById(Long reviewId) {

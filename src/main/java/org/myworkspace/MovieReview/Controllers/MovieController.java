@@ -19,12 +19,12 @@ public class MovieController {
     @Autowired
     private MovieService movieService;
 
-    @GetMapping("/searchbytitle")
+    @GetMapping("/searchByTitle")
     public MovieResponse findMovie(String title){
         return movieService.findMovie(title);
     }
 
-    @GetMapping("/filterbygenre")
+    @GetMapping("/searchByGenre")
     public List<MovieResponse> findMovieByGenre(@RequestParam String genre){
         return movieService.findMoviesByGenre(genre);
     }

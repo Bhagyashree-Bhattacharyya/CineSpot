@@ -5,9 +5,14 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.myworkspace.MovieReview.DTOs.Responses.ReviewResponse;
 import org.springframework.data.annotation.Id;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Data
 @Entity
@@ -22,7 +27,7 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String movieReview;
+    private String reviewContent;
 
     private double rating;
 
@@ -37,14 +42,17 @@ public class Review {
     @UpdateTimestamp
     private Date updatedDate;
 
-//    public static ReviewResponse toReviewResponse(Review review) {
-//        return ReviewResponse.builder().review(review.movieReview).rating(review.rating).build();
-//    }
-//
-//    public static List<ReviewResponse> toReviewResponse(List<Review> reviewList) {
-//        if (Objects.isNull(reviewList))
-//            return new ArrayList<>();
-//        else
-//            return reviewList.stream().map(Review::toReviewResponse).collect(Collectors.toList());
-//    }
+
+    public static ReviewResponse toReviewResponse(Review review) {
+        return ReviewResponse.builder().reviewContent(review.reviewContent)
+                .rating(review.rating).build();
+    }
+
+    public static List<ReviewResponse> toReviewResponse(List<Review> reviewList) {
+        if (Objects.isNull(reviewList))
+            return new ArrayList<>();
+        else
+            return reviewList.stream().map(Review::toReviewResponse)
+                    .collect(Collectors.toList());
+    }
 }

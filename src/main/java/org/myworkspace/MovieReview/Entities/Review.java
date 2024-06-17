@@ -7,10 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.myworkspace.MovieReview.DTOs.Responses.ReviewResponse;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Data
@@ -51,10 +48,12 @@ public class Review {
     }
 
     public static List<ReviewResponse> toReviewResponse(List<Review> reviewList) {
-        if (Objects.isNull(reviewList))
-            return new ArrayList<>();
-        else
+        if (reviewList == null) {
+            return Collections.emptyList();
+        }
+        else {
             return reviewList.stream().map(Review::toReviewResponse)
                     .collect(Collectors.toList());
+        }
     }
 }

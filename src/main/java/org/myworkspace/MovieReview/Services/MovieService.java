@@ -16,9 +16,9 @@ public class MovieService {
     @Autowired
     private MovieRepository movieRepository;
     
-    public MovieResponse findMovie(String title) {
-        Movie movie = movieRepository.findByTitle(title);
-        return Objects.nonNull(movie) ? movie.toMovieResponse() : null ;
+    public MovieResponse findMovie(String movieName) {
+        Movie movie = movieRepository.findByTitle(movieName);
+        return movie.toMovieResponse();
     }
 
     public List<MovieResponse> findMoviesByGenre(String genre) {

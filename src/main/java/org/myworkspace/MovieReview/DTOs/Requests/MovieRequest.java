@@ -13,8 +13,9 @@ public class MovieRequest {
 
     private String title;
     private Genre genre;
+    private Integer releaseYear;
 
     public Movie toMovie() {
-        return Movie.builder().title(title).genre(genre).rating(0.0).build();
+        return Movie.builder().title(title).releaseYear(releaseYear).genre(genre).rating(0.0).build();
     }
 }

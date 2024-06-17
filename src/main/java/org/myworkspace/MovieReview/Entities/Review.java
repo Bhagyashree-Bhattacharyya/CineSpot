@@ -26,6 +26,9 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "ref_id", nullable = false, unique = true)
+    private String refId;
+
     private String reviewContent;
 
     private double rating;
@@ -43,7 +46,7 @@ public class Review {
 
 
     public static ReviewResponse toReviewResponse(Review review) {
-        return ReviewResponse.builder().reviewContent(review.reviewContent)
+        return ReviewResponse.builder().movie(review.movie.getTitle()).releaseYear(review.movie.getReleaseYear()).reviewContent(review.reviewContent)
                 .rating(review.rating).build();
     }
 

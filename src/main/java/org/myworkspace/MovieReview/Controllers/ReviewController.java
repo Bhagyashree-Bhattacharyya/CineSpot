@@ -14,13 +14,13 @@ public class ReviewController {
     private ReviewService reviewService;
 
     @PostMapping("/addReview")
-    public void addReview(@RequestBody ReviewRequest reviewRequest){
-        reviewService.addReview(reviewRequest);
+    public String addReview(@RequestBody ReviewRequest reviewRequest){
+        return reviewService.addReview(reviewRequest);
     }
 
     @GetMapping("/findReview")
-    public ReviewResponse getReview(@RequestParam Long reviewId){
-        return reviewService.getReviewById(reviewId);
+    public ReviewResponse getReview(@RequestParam String refId){
+        return reviewService.getReviewById(refId);
     }
 
 }

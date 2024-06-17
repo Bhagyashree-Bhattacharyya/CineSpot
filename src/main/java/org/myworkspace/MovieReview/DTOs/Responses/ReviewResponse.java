@@ -7,6 +7,8 @@ import lombok.Data;
 @Builder
 public class ReviewResponse {
 
+    private String movie;
+    private int releaseYear;
     private String reviewContent;
     private Double rating;
 }

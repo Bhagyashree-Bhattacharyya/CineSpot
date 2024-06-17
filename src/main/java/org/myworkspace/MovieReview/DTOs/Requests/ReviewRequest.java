@@ -15,10 +15,11 @@ public class ReviewRequest {
 
     private String reviewContent;
     private double rating;
-    private Long movieId;
+    private String movieTitle;
+    private Integer releaseYear;
 
     public Review toReview() {
         return Review.builder().reviewContent(reviewContent)
-                .rating(rating).movie(Movie.builder().id(movieId).build()).build();
+                .rating(rating).movie(Movie.builder().title(movieTitle).releaseYear(releaseYear).build()).build();
     }
 }

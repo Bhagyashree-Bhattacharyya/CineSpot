@@ -15,7 +15,7 @@ public class AdminService {
         this.movieRepository = movieRepository;
     }
 
-    public MovieResponse addMovie(MovieRequest movieRequest){
-        return movieRepository.save(movieRequest.toMovie()).toMovieResponse();
+    public Movie addMovie(MovieRequest movieRequest){
+        return movieRepository.save(movieRequest.toMovie());
     }
 }

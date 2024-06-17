@@ -30,6 +30,8 @@ public class Movie implements Serializable {
 
     private Double rating;
 
+    private Integer releaseYear;
+
     @OneToMany(mappedBy = "movie")
     private List<Review> reviews;
 

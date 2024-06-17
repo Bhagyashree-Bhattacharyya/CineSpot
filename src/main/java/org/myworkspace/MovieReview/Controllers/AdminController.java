@@ -2,6 +2,7 @@ package org.myworkspace.MovieReview.Controllers;
 
 
 import jakarta.validation.Valid;
+import org.myworkspace.MovieReview.Entities.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,8 +22,15 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @PostMapping("addMovie")
-    public ResponseEntity<MovieResponse> addMovie(@RequestBody @Valid MovieRequest movieRequest){
+//    @PostMapping("addMovie")
+//    public ResponseEntity<MovieResponse> addMovie(@RequestBody @Valid MovieRequest movieRequest){
+//        return new ResponseEntity<>(adminService.addMovie(movieRequest), HttpStatus.CREATED);
+//    }
+
+
+    @PostMapping("/addMovie")
+    public ResponseEntity<Movie> addMovie(@RequestBody @Valid MovieRequest movieRequest) {
         return new ResponseEntity<>(adminService.addMovie(movieRequest), HttpStatus.CREATED);
     }
+
 }

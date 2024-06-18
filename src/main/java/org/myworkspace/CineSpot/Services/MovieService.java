@@ -1,7 +1,7 @@
 package org.myworkspace.CineSpot.Services;
 
 import org.myworkspace.CineSpot.DTOs.Responses.MovieResponse;
-import org.myworkspace.CineSpot.Entities.Genre;
+import org.myworkspace.CineSpot.Entities.enums.Genre;
 import org.myworkspace.CineSpot.Entities.Movie;
 import org.myworkspace.CineSpot.Repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;

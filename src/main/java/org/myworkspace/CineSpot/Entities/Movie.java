@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.myworkspace.CineSpot.DTOs.Responses.MovieResponse;
+import org.myworkspace.CineSpot.Entities.enums.Genre;
+
 import java.io.Serializable;
 
 import java.util.List;

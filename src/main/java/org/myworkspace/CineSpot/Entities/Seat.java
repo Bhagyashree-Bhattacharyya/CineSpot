@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import org.myworkspace.CineSpot.DTOs.Responses.SeatResponse;
 import org.hibernate.annotations.CreationTimestamp;
+import org.myworkspace.CineSpot.Entities.enums.SeatType;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;

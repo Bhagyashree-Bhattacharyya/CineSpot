@@ -2,7 +2,7 @@ package org.myworkspace.CineSpot.DTOs.Responses;
 
 import lombok.Builder;
 import lombok.Data;
-import org.myworkspace.CineSpot.Entities.SeatType;
+import org.myworkspace.CineSpot.Entities.enums.SeatType;
 import java.util.Date;
 
 @Data

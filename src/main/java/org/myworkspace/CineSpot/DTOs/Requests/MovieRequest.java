@@ -3,7 +3,7 @@ package org.myworkspace.CineSpot.DTOs.Requests;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.myworkspace.CineSpot.Entities.Genre;
+import org.myworkspace.CineSpot.Entities.enums.Genre;
 import org.myworkspace.CineSpot.Entities.Movie;
 
 @Data

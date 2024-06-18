@@ -20,6 +20,7 @@ import java.util.List;
 @Data
 @Builder
 @Entity
+@Table(name = "`movie_show`")
 public class Show {
 
     @Id
@@ -50,9 +51,9 @@ public class Show {
     @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
     private List<Ticket> ticketList;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
-//    private static List<Seat> seatList;
+    @JsonIgnore
+    @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
+    private static List<Seat> availableSeats;
 
 
 //    public List<ShowResponse> toShowResponse(List<Show> shows){

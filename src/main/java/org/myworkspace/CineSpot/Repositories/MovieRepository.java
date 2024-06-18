@@ -1,6 +1,6 @@
 package org.myworkspace.CineSpot.Repositories;
 
-import org.myworkspace.CineSpot.Entities.Genre;
+import org.myworkspace.CineSpot.Entities.enums.Genre;
 import org.myworkspace.CineSpot.Entities.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 

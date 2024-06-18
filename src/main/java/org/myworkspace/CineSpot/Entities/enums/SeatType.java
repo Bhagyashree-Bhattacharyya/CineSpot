@@ -1,4 +1,4 @@
-package org.myworkspace.CineSpot.Entities;
+package org.myworkspace.CineSpot.Entities.enums;
 
 public enum SeatType {
 

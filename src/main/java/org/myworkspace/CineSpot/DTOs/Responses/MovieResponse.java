@@ -2,7 +2,7 @@ package org.myworkspace.CineSpot.DTOs.Responses;
 
 import lombok.Builder;
 import lombok.Data;
-import org.myworkspace.CineSpot.Entities.Genre;
+import org.myworkspace.CineSpot.Entities.enums.Genre;
 
 import java.util.List;
 

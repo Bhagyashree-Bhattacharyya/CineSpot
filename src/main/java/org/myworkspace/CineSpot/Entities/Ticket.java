@@ -28,9 +28,9 @@ public class Ticket {
     @Column(nullable = false)
     private Date bookedAt;
 
-//    @ManyToOne
-//    @JsonIgnore
-//    private User user;
+    @ManyToOne
+    @JsonIgnore
+    private User user;
 
     @ManyToOne
     @JsonIgnore
@@ -38,5 +38,5 @@ public class Ticket {
 
     @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Seat> seats;
+    private List<Seat> bookedSeats;
 }

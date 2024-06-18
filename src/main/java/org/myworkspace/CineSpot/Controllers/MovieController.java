@@ -1,11 +1,12 @@
 package org.myworkspace.CineSpot.Controllers;
 
+import jakarta.validation.Valid;
+import org.myworkspace.CineSpot.DTOs.Requests.MovieRequest;
 import org.myworkspace.CineSpot.DTOs.Responses.MovieResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import org.myworkspace.CineSpot.Services.MovieService;
 
@@ -17,6 +18,20 @@ public class MovieController {
 
     @Autowired
     private MovieService movieService;
+
+    @PostMapping("/addMovie")
+    public ResponseEntity<MovieResponse> addMovie(@RequestBody @Valid MovieRequest movieRequest,
+                                          @RequestHeader("UserRole") String userRole) {
+        if (!"ADMIN".equals(userRole)) {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN); // too naive --- will refactor
+        }
+        return new ResponseEntity<>(movieService.addMovie(movieRequest), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<MovieResponse> getMovieById(@PathVariable(name = "id") Long id) {
+        return ResponseEntity.ok(movieService.getMovie(id));
+    }
 
     @GetMapping("/searchByTitle")
     public MovieResponse findMovie(@RequestParam String movieName){

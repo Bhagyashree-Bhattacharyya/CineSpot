@@ -49,9 +49,7 @@ public class ReviewService {
         review.setMovie(movie);
         review.setRefId(UUID.randomUUID().toString());
         reviewRepository.save(review);
-
         updateMovieRating(movie);
-
         return review.getRefId();
     }
 

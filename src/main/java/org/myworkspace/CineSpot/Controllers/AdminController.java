@@ -26,9 +26,6 @@ public class AdminController {
 //    }
 
 
-    @PostMapping("/addMovie")
-    public ResponseEntity<Movie> addMovie(@RequestBody @Valid MovieRequest movieRequest) {
-        return new ResponseEntity<>(adminService.addMovie(movieRequest), HttpStatus.CREATED);
-    }
+
 
 }

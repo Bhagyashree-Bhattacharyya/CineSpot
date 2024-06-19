@@ -26,6 +26,8 @@ public class Theater {
     @Column(nullable = false)
     private String city;
     private String Address;
+    @Column(nullable = false)
+    private long refId;
 
     @JsonIgnore
     @Builder.Default
@@ -34,7 +36,7 @@ public class Theater {
 
 
     public TheaterResponse toTheaterResponse() {
-        return TheaterResponse.builder().name(name).city(city)
+        return TheaterResponse.builder().name(name).city(city).refId(refId)
                 .address(getAddress()).build();
     }
 }

@@ -13,5 +13,8 @@ public interface TheaterRepository extends JpaRepository<Theater, Long> {
     Optional<Theater> findByNameAndCity(@Param("name") String name, @Param("city") String cityName);
 
     Optional<Theater> findByCity(String cityName);
+
+    @Query(value = "SELECT ref_id FROM theater ORDER BY id DESC LIMIT 1", nativeQuery = true)
+    Long getLastInsertedRefId();
 }
 

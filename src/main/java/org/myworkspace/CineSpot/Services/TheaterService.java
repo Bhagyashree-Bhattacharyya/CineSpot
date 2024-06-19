@@ -20,9 +20,12 @@ public class TheaterService {
     private TheaterRepository theaterRepository;
 
     public TheaterResponse addTheater(TheaterRequest theaterInfo) {
-        Theater theater = theaterRepository.save(theaterInfo.toTheater());
-        log.info("Added New User [id: {}, Name: {}]", theater.getId(), theater.getName());
-        return theater.toTheaterResponse();
+        Theater theater = theaterInfo.toTheater();
+        long ref_id = theaterRepository.getLastInsertedRefId() +1;
+        theater.setRefId(ref_id);
+        Theater theater_ = theaterRepository.save(theater);
+        log.info("Added New Theater [id: {}, Name: {}]", theater.getId(), theater.getName());
+        return theater_.toTheaterResponse();
     }
 
     public TheaterResponse getTheater(String name, String cityName) {
